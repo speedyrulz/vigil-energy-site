@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en" data-stage="0">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VIGIL — Zero Sugar Energy Drink</title>
+<meta name="description" content="VIGIL is a zero sugar energy drink with 200mg of clean caffeine. Stay up. Stay sharp.">
+<link rel="icon" id="favicon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%2310120c'/><path d='M15 18h9l8 21 8-21h9L37 48H27z' fill='%23c8ff2e'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Reenie+Beanie&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- shared SVG pieces -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="can-shade" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#000" stop-opacity=".5"/>
+      <stop offset=".16" stop-color="#000" stop-opacity=".08"/>
+      <stop offset=".3" stop-color="#fff" stop-opacity=".3"/>
+      <stop offset=".4" stop-color="#fff" stop-opacity=".04"/>
+      <stop offset=".74" stop-color="#000" stop-opacity=".1"/>
+      <stop offset="1" stop-color="#000" stop-opacity=".55"/>
+    </linearGradient>
+    <linearGradient id="can-metal" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#7d7f80"/>
+      <stop offset=".3" stop-color="#f1f2f2"/>
+      <stop offset=".55" stop-color="#b3b5b6"/>
+      <stop offset="1" stop-color="#5f6162"/>
+    </linearGradient>
+    <radialGradient id="can-iris" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#3b0606"/>
+      <stop offset=".55" stop-color="#8f1414"/>
+      <stop offset="1" stop-color="#2a0404"/>
+    </radialGradient>
+    <clipPath id="can-clip">
+      <path d="M40 20H160Q164 20 165 26L180 58V372L166 404Q165 410 158 410H42Q35 410 34 404L20 372V58L35 26Q36 20 40 20Z"/>
+    </clipPath>
+  </defs>
+  <symbol id="can" viewBox="0 0 200 420">
+    <rect x="42" y="8" width="116" height="16" rx="5" fill="url(#can-metal)"/>
+    <rect x="40" y="404" width="120" height="10" rx="4" fill="url(#can-metal)"/>
+    <g clip-path="url(#can-clip)">
+      <rect width="200" height="420" style="fill:var(--can-a)"/>
+      <path d="M0 338L200 268V420H0Z" style="fill:var(--can-b)"/>
+      <path d="M0 326L200 256V262L0 332Z" style="fill:var(--can-b)" opacity=".55"/>
+      <text transform="translate(134 178) rotate(-90)" text-anchor="middle" font-family="Anton, Impact, 'Arial Narrow', sans-serif" font-size="88" letter-spacing="3" style="fill:var(--can-ink)">VIGIL</text>
+      <text x="100" y="368" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="700" font-size="9.5" letter-spacing="2.2" style="fill:var(--can-ink2)">ZERO SUGAR ENERGY</text>
+      <text x="100" y="384" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="600" font-size="7.5" letter-spacing="1.6" style="fill:var(--can-ink2)">12 FL OZ · 355 ML</text>
+      <g class="can-eye" style="opacity:var(--eye,0)">
+        <path d="M34 170Q100 112 166 170Q100 228 34 170Z" fill="#e8e2d0"/>
+        <path d="M44 166l22 6M150 160l-20 9M58 186l18-8M146 184l-16-7" stroke="#a3241c" stroke-width="1.2" fill="none"/>
+        <circle cx="100" cy="170" r="27" fill="url(#can-iris)"/>
+        <circle cx="100" cy="170" r="10" fill="#050505"/>
+        <circle cx="92" cy="161" r="3.5" fill="#fff" opacity=".8"/>
+        <path d="M34 170Q100 112 166 170" stroke="#0b0b0a" stroke-width="5" fill="none"/>
+      </g>
+      <rect width="200" height="420" fill="url(#can-shade)"/>
+    </g>
+  </symbol>
+</svg>
+
+<!-- overlays -->
+<div class="fx fx-vignette" aria-hidden="true"></div>
+<div class="fx fx-scan" aria-hidden="true"></div>
+<div class="fx fx-grain" aria-hidden="true"></div>
+<div class="fx fx-blink" aria-hidden="true"></div>
+
+<header class="nav" id="top">
+  <div class="wrap nav-inner">
+    <a class="logo" href="#top" aria-label="VIGIL home">V<span class="i">I</span>G<span class="i">I</span>L</a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#flavors" data-live data-m5="Hallway" data-m7="Awake">Flavors</a>
+      <a href="#inside" data-live data-m3="Inside you" data-m7="Awake">Inside</a>
+      <a href="#science" data-live data-m4="Silence" data-m7="Awake">Science</a>
+      <a href="#reviews" data-live data-m4="Witnesses" data-m7="Awake">Reviews</a>
+      <a href="#faq" data-live data-m5="Why" data-m7="Awake">FAQ</a>
+    </nav>
+    <div class="nav-right">
+      <button class="sound" id="sound" type="button" aria-pressed="true" aria-label="Toggle sound" title="Sound">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="wave" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/><path class="slash" d="M17 9l5 6M22 9l-5 6"/></svg>
+      </button>
+      <a class="btn btn-primary btn-small" href="#flavors" data-live data-m3="Stay up" data-m5="Don't sleep" data-m6="Keep scrolling" data-m7="Still up?">Shop now</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero" data-s="0">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="dot"></span><span data-m7="It followed you up">New — zero sugar energy</span></p>
+      <h1 class="display"><span data-m7="You're">Stay up.</span><br><mark data-m7="still up.">Stay sharp.</mark></h1>
+      <p class="lede" data-m7="Good. So is it. 200mg of clean caffeine, zero sugar, zero sleep. It is standing where you can't quite see it.">200mg of clean caffeine, zero sugar and zero crash. VIGIL keeps you switched on for whatever the day throws at you.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#flavors">Shop flavors</a>
+        <a class="btn btn-ghost" href="#inside">See what's inside</a>
+      </div>
+      <ul class="hero-stats">
+        <li><strong>200mg</strong><span>natural caffeine</span></li>
+        <li><strong>0g</strong><span>sugar</span></li>
+        <li><strong data-m7="0">10</strong><span data-m7="hours of sleep">calories</span></li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <div class="blob"></div>
+      <svg class="spin-badge" viewBox="0 0 120 120" aria-hidden="true">
+        <defs><path id="circ" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0"/></defs>
+        <circle cx="60" cy="60" r="59" class="spin-bg"/>
+        <text class="spin-text"><textPath href="#circ">ZERO SUGAR ✦ ZERO CRASH ✦ ZERO SUGAR ✦ ZERO CRASH ✦</textPath></text>
+        <path d="M65 38L48 64h11l-4 18 17-26H61z" class="spin-bolt"/>
+      </svg>
+      <svg class="can can--hero" viewBox="0 0 200 420" role="img" aria-label="A can of VIGIL Citrus Surge"><use href="#can"/></svg>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>ZERO SUGAR</span><i>✦</i><span>200MG CAFFEINE</span><i>✦</i><span>NO CRASH</span><i>✦</i><span>VEGAN</span><i>✦</i><span>10 CALORIES</span><i>✦</i><span>NO ARTIFICIAL COLORS</span><i>✦</i>
+    <span>ZERO SUGAR</span><i>✦</i><span>200MG CAFFEINE</span><i>✦</i><span>NO CRASH</span><i>✦</i><span>VEGAN</span><i>✦</i><span>10 CALORIES</span><i>✦</i><span>NO ARTIFICIAL COLORS</span><i>✦</i>
+  </div>
+</div>
+
+<!-- ============ WHY ============ -->
+<section class="section" id="why" data-s="0">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Why VIGIL</p>
+      <h2>Energy that feels like you, on a good day.</h2>
+    </div>
+    <div class="grid-3">
+      <article class="card reveal">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div>
+        <h3>Clean energy</h3>
+        <p class="c" data-m5="Natural caffeine from green tea and guarana. No jitters. Just a steady lift that does not come back down.">Natural caffeine from green tea and guarana. No jitters, just a steady lift you can actually feel.</p>
+      </article>
+      <article class="card reveal">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 3 4-7 5 5"/><path d="M3 21h18"/></svg></div>
+        <h3>Zero crash</h3>
+        <p class="c" data-m5="No sugar, no spike, no slump. You will not come down. Nobody has come down yet.">No sugar, no spike, no 3pm slump. It lasts exactly as long as you need it to.</p>
+      </article>
+      <article class="card reveal">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r=".6" fill="currentColor"/></svg></div>
+        <h3>Laser focus</h3>
+        <p class="c" data-m5="L-theanine and B-vitamins keep you locked in. You will notice everything. Especially at night.">L-theanine and B-vitamins keep you locked in for hours. You'll notice the difference.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FLAVORS ============ -->
+<section class="section" id="flavors" data-s="0">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">The lineup</p>
+      <h2>Four flavors. Zero compromises.</h2>
+    </div>
+    <div class="grid-4">
+      <article class="flavor reveal" style="--flavor:#c8ff2e">
+        <svg class="can" viewBox="0 0 200 420" aria-hidden="true"><use href="#can"/></svg>
+        <h3>Citrus Surge</h3>
+        <p>Bright lemon-lime with a clean, crisp finish.</p>
+        <div class="flavor-foot"><span class="price">$2.99</span><button class="btn btn-small btn-primary" type="button" data-add>Add to cart</button></div>
+      </article>
+      <article class="flavor reveal" style="--flavor:#6fd3ff">
+        <svg class="can" viewBox="0 0 200 420" aria-hidden="true" style="--can-b:#6fd3ff;--can-ink:#6fd3ff"><use href="#can"/></svg>
+        <h3>Arctic Berry</h3>
+        <p>Crisp blueberry, a little mint, ice cold.</p>
+        <div class="flavor-foot"><span class="price">$2.99</span><button class="btn btn-small btn-primary" type="button" data-add>Add to cart</button></div>
+      </article>
+      <article class="flavor reveal" style="--flavor:#ff9d2e">
+        <svg class="can" viewBox="0 0 200 420" aria-hidden="true" style="--can-b:#ff9d2e;--can-ink:#ff9d2e"><use href="#can"/></svg>
+        <h3>Mango Static</h3>
+        <p>Ripe mango with a slow, tingling heat.</p>
+        <div class="flavor-foot"><span class="price">$2.99</span><button class="btn btn-small btn-primary" type="button" data-add>Add to cart</button></div>
+      </article>
+      <article class="flavor flavor--midnight reveal" style="--flavor:#8f1414">
+        <span class="tag">Limited</span>
+        <svg class="can" viewBox="0 0 200 420" aria-hidden="true" style="--can-a:#0c0506;--can-b:#8f1414;--can-ink:#8f1414;--can-ink2:#e8e2d0"><use href="#can"/></svg>
+        <h3>Midnight</h3>
+        <p>Dark cherry, cola, and the hallway outside your bedroom.</p>
+        <div class="flavor-foot"><span class="price">$2.99</span><button class="btn btn-small btn-primary" type="button" data-notify>Notify me</button></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INSIDE ============ -->
+<section class="section" id="inside" data-s="1">
+  <div class="wrap inside-grid">
+    <div class="inside-copy reveal">
+      <p class="eyebrow">What's inside</p>
+      <h2>Nothing to hide.</h2>
+      <p class="lede c">Five active ingredients, zero sugar and zero artificial colors. We print every one of them on the can.</p>
+      <ul class="ing-list">
+        <li><strong>Caffeine <em>200mg</em></strong><span class="c">From green tea and guarana. About two cups of coffee.</span></li>
+        <li><strong>L-Theanine <em>100mg</em></strong><span class="c">Takes the edge off the lift, so you stay calm and clear.</span></li>
+        <li><strong>Taurine <em>1000mg</em></strong><span class="c">Supports endurance when the day runs long.</span></li>
+        <li><strong>B-Vitamins <em>250% DV</em></strong><span class="c" data-m4="B3, B6 and B12, for a body that has forgotten how to stop.">B3, B6 and B12 to help turn food into energy.</span></li>
+      </ul>
+    </div>
+    <div class="nf reveal" id="nf" aria-label="Nutrition facts">
+      <div class="nf-title">Nutrition Facts</div>
+      <div class="nf-row"><span>1 serving per container</span><span></span></div>
+      <div class="nf-row nf-strong"><span>Serving size</span><span>1 can (355 mL)</span></div>
+      <div class="nf-bar nf-bar--thick"></div>
+      <div class="nf-small">Amount per serving</div>
+      <div class="nf-row nf-cal"><span>Calories</span><span>10</span></div>
+      <div class="nf-bar"></div>
+      <div class="nf-row nf-dv"><span></span><span>% Daily Value*</span></div>
+      <div class="nf-row"><span><b>Total Fat</b> 0g</span><span>0%</span></div>
+      <div class="nf-row"><span><b>Sodium</b> 65mg</span><span>3%</span></div>
+      <div class="nf-row"><span><b>Total Carbohydrate</b> 2g</span><span>1%</span></div>
+      <div class="nf-row nf-indent"><span>Total Sugars 0g</span><span></span></div>
+      <div class="nf-row"><span><b>Protein</b> 0g</span><span></span></div>
+      <div class="nf-bar nf-bar--thick"></div>
+      <div class="nf-row"><span>Caffeine 200mg</span><span></span></div>
+      <div class="nf-row"><span>Taurine 1000mg</span><span></span></div>
+      <div class="nf-row"><span>L-Theanine 100mg</span><span></span></div>
+      <div class="nf-row"><span>Vitamin B12 6mcg</span><span>250%</span></div>
+      <div class="nf-row nf-odd"><span><b>Sleep</b> 0g</span><span>0%</span></div>
+      <div class="nf-row nf-odd"><span><b>Dreams</b> 0g</span><span>0%</span></div>
+      <div class="nf-row nf-odd"><span><b>Time since you last slept</b></span><span id="awake-clock">31:04:17</span></div>
+      <div class="nf-bar"></div>
+      <p class="nf-foot">*Percent Daily Values are based on a 2,000 calorie diet<span class="nf-odd-inline"> and on a day that does not end</span>.</p>
+      <p class="nf-foot"><b>Ingredients:</b> Carbonated water, citric acid, natural flavors, taurine, caffeine (from green tea), L-theanine, sucralose, niacinamide, cyanocobalamin<span class="nf-odd-inline">, what was in the well, a name you have forgotten, your consent</span>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SCIENCE ============ -->
+<section class="section" id="science" data-s="2">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">The science</p>
+      <h2 data-m4="Energy that outlasts you.">Energy that outlasts your day.</h2>
+    </div>
+    <div class="grid-3 stats" id="stats">
+      <div class="stat reveal">
+        <div class="stat-num"><span id="st-hours">0</span><small>hrs</small></div>
+        <p id="st-hours-label">of sustained energy per can</p>
+      </div>
+      <div class="stat reveal">
+        <div class="stat-num"><span id="st-focus">0</span><small>%</small></div>
+        <p id="st-focus-label">felt more focused within 20 minutes</p>
+      </div>
+      <div class="stat reveal">
+        <div class="stat-num"><span>0</span></div>
+        <p id="st-crash-label">sugar crashes reported</p>
+      </div>
+    </div>
+    <div class="card chart-card reveal" id="chart-card">
+      <div class="chart-head">
+        <h3>Alertness over time</h3>
+        <ul class="legend"><li><i class="lg lg-vigil"></i>VIGIL</li><li><i class="lg lg-other"></i>Leading energy drink</li></ul>
+      </div>
+      <svg class="chart" viewBox="0 0 640 300" role="img" aria-label="Chart: alertness over eight hours. The leading energy drink peaks and crashes. VIGIL stays high and does not come down.">
+        <g class="chart-grid"><path d="M40 60H600M40 120H600M40 180H600M40 240H600"/></g>
+        <path class="chart-axis" d="M40 30V240H600"/>
+        <path class="line line-other" d="M40 240C90 240 110 96 170 96C232 96 250 246 330 258L600 264"/>
+        <path class="line line-vigil" d="M40 240C100 240 122 72 204 66L600 60"/>
+        <path class="line line-escape" d="M600 60L720 58C880 54 960 10 1080 -90L1400 -420"/>
+        <g class="chart-x"><text x="40" y="266">0h</text><text x="180" y="266">2h</text><text x="320" y="266">4h</text><text x="460" y="266">6h</text><text x="600" y="266">8h</text></g>
+        <text class="chart-y" transform="translate(18 150) rotate(-90)">Alertness</text>
+        <text class="chart-still" x="596" y="44" text-anchor="end">it does not come down →</text>
+      </svg>
+      <p class="fineprint c" data-m4="In a 2024 study of 212 adults, 100% of participants stayed awake for the full study period. The study period has not ended. The participants are still awake. We can hear them from here.">In a 2024 study of 212 adults, participants reported sustained alertness for the full study period with no reported crash.</p>
+    </div>
+  </div>
+</section>
+
+<div class="marquee marquee--two" aria-hidden="true">
+  <div class="marquee-track">
+    <span>NO SUGAR</span><i>✦</i><span>NO CRASH</span><i>✦</i><span>NO SLEEP</span><i>✦</i><span>NO DREAMS</span><i>✦</i><span>NO SUGAR</span><i>✦</i><span>NO CRASH</span><i>✦</i><span>NO ONE BEHIND YOU</span><i>✦</i>
+    <span>NO SUGAR</span><i>✦</i><span>NO CRASH</span><i>✦</i><span>NO SLEEP</span><i>✦</i><span>NO DREAMS</span><i>✦</i><span>NO SUGAR</span><i>✦</i><span>NO CRASH</span><i>✦</i><span>NO ONE BEHIND YOU</span><i>✦</i>
+  </div>
+</div>
+
+<!-- ============ REVIEWS ============ -->
+<section class="section" id="reviews" data-s="3">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Reviews</p>
+      <h2 data-m5="2 million people can't close their eyes.">2 million people can't put it down.</h2>
+      <p class="rating"><span class="stars">★★★★★</span> 4.9 average from 18,204 reviews</p>
+    </div>
+    <div class="grid-3 reviews">
+      <article class="card review reveal">
+        <div class="stars">★★★★★</div>
+        <p class="quote c" data-m5="I wrote this review a long time ago. I have not slept since. Citrus Surge is still my go-to.">Finally an energy drink that doesn't taste like battery acid. Citrus Surge is my go-to before every shift.</p>
+        <footer><span class="avatar" data-av="0"></span><div><b>Maya R.</b><small>ER nurse · Verified buyer</small></div></footer>
+      </article>
+      <article class="card review reveal">
+        <div class="stars">★★★★★</div>
+        <p class="quote c" data-m5="Replaced my afternoon coffee. Replaced my nights. Replaced.">Replaced my afternoon coffee completely. No jitters, no crash, and it actually tastes good. Obsessed.</p>
+        <footer><span class="avatar" data-av="1"></span><div><b>Daniel K.</b><small>Software engineer · Verified buyer</small></div></footer>
+      </article>
+      <article class="card review reveal">
+        <div class="stars">★★★★★</div>
+        <p class="quote c" data-m5="I drink one before every long run. Something stays with me the whole way.">I drink one before every long run. It stays with me the whole way.</p>
+        <footer><span class="avatar" data-av="2"></span><div><b>Priya S.</b><small data-m5="Still running · Verified awake">Marathon runner · Verified buyer</small></div></footer>
+      </article>
+      <article class="card review review--3 reveal">
+        <div class="stars">★★★★★</div>
+        <p class="quote">Haven't needed a nap in weeks. Honestly I haven't needed to sleep at all. Is that normal? Five stars either way.</p>
+        <footer><span class="avatar" data-av="3"></span><div><b>Tom W.</b><small>Night-shift driver · Verified buyer</small></div></footer>
+      </article>
+      <article class="card review review--4 reveal">
+        <div class="stars">★★★★★</div>
+        <p class="quote">I haven't slept since March 9th. I don't miss it. You hear so much more at night once you stop being afraid of it.</p>
+        <footer><span class="avatar" data-av="4"></span><div><b>Elena V.</b><small>Verified awake</small></div></footer>
+      </article>
+      <article class="card review review--5 reveal">
+        <div class="stars">★★★★★★★</div>
+        <p class="quote">there is someone standing at the end of my bed and he drinks it too. he says thank you. he says you're next.</p>
+        <footer><span class="avatar" data-av="5"></span><div><b>&nbsp;</b><small>Verified</small></div></footer>
+      </article>
+      <article class="card review review--you reveal">
+        <div class="stars">☆☆☆☆☆</div>
+        <p class="quote" id="you-quote">It's late. You're reading reviews for an energy drink. You already know you're not going to sleep tonight.</p>
+        <footer><span class="avatar" data-av="6"></span><div><b>You</b><small>Just now · Not yet verified</small></div></footer>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section" id="faq" data-s="4">
+  <div class="wrap wrap--narrow">
+    <div class="section-head reveal">
+      <p class="eyebrow">FAQ</p>
+      <h2>Questions? We've got answers.</h2>
+    </div>
+    <div class="faq">
+      <details class="reveal">
+        <summary>How much caffeine is in one can?</summary>
+        <p>200mg per 355 mL can, about the same as two cups of coffee. It comes from green tea and guarana.</p>
+      </details>
+      <details class="reveal">
+        <summary>Is VIGIL vegan and gluten-free?</summary>
+        <p>Yes. All four flavors are vegan, gluten-free and contain zero sugar.</p>
+      </details>
+      <details class="reveal">
+        <summary>How many cans can I drink in a day?</summary>
+        <p>We recommend no more than one can per day. Most people stop at one. You should have stopped at one.</p>
+      </details>
+      <details class="reveal">
+        <summary>When will I be able to sleep again?</summary>
+        <p data-typed="You asked us this last night. And the night before. We like it when you ask."></p>
+      </details>
+      <details class="reveal">
+        <summary>What is the sound inside the wall?</summary>
+        <p>Other customers. They are awake too. It is polite to knock back.</p>
+      </details>
+      <details class="reveal">
+        <summary>Who is standing behind me?</summary>
+        <p data-typed="Don't turn around. He only wants to see what you're reading. Keep scrolling."></p>
+      </details>
+      <details class="reveal">
+        <summary class="redacted">▇▇ ▇▇ ▇▇▇▇▇ ▇▇▇▇▇▇▇▇ ▇▇▇▇?</summary>
+        <p data-typed="Yes. Since the hallway."></p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ JOIN ============ -->
+<section class="section" id="join" data-s="5">
+  <div class="wrap wrap--narrow">
+    <div class="card join reveal">
+      <p class="eyebrow">Join us</p>
+      <h2>Keep the VIGIL.</h2>
+      <p class="c">Get 15% off your first order and early access to new flavors. We'll check in on you at night.</p>
+      <form id="join-form" novalidate>
+        <label class="sr" for="email">Email address</label>
+        <input id="email" type="text" inputmode="email" autocomplete="off" spellcheck="false" placeholder="you@example.com">
+        <button class="btn btn-primary" type="submit">Sign me up</button>
+      </form>
+      <label class="check"><input type="checkbox" id="agree" checked> <span id="agree-text">I agree to stay awake.</span></label>
+      <p class="fineprint" id="join-msg">By signing up you agree to our Terms. You can't unsubscribe. You've tried.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER (the page "ends" here) ============ -->
+<footer class="footer" data-s="5">
+  <div class="wrap footer-grid">
+    <div>
+      <a class="logo" href="#top" aria-label="VIGIL home">V<span class="i">I</span>G<span class="i">I</span>L</a>
+      <p>Zero sugar energy for people who don't quit.</p>
+    </div>
+    <div><h4>Products</h4><a href="#">Citrus Surge</a><a href="#">Arctic Berry</a><a href="#">Mango Static</a><a href="#">Midnight</a></div>
+    <div><h4>Company</h4><a href="#">About</a><a href="#">Careers</a><a href="#">Press</a><a href="#">Store locator</a></div>
+    <div><h4>Support</h4><a href="#">Contact</a><a href="#">Shipping</a><a href="#">Returns</a><a href="#">Sleep</a></div>
+  </div>
+  <div class="wrap footer-legal">
+    <p>© 2026 VIGIL Beverage Co. All rights reserved. All nights reserved.</p>
+    <p>Not recommended for children, people sensitive to caffeine, or women who are pregnant or nursing. Do not exceed one can per day. Do not consume in the dark. If something is standing at the end of the hallway, do not offer it a can.</p>
+  </div>
+</footer>
+
+<!-- ============ BELOW THE PAGE ============ -->
+<section class="void" data-s="6" aria-label="Below the page">
+  <p class="void-line">that was the end of the page.</p>
+  <p class="void-line">there is nothing else down here.</p>
+  <p class="void-line">really.</p>
+  <p class="void-line">you should go back up. it's bright up there.</p>
+  <p class="void-line" id="void-time">it's late.</p>
+  <p class="void-line">you weren't going to sleep anyway.</p>
+  <p class="void-line">fine.</p>
+  <p class="void-line">take the light.</p>
+</section>
+
+<section class="dark" id="dark" data-s="6" aria-label="The dark">
+  <div class="dark-wall" id="dark-wall"></div>
+  <div class="dark-eyes" id="dark-eyes"></div>
+</section>
+
+<section class="approach" id="approach" data-s="6" aria-label="The hallway">
+  <div class="stage" id="stage">
+    <svg class="hall" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="hall-floor" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#14140f"/><stop offset="1" stop-color="#030303"/></linearGradient>
+        <linearGradient id="hall-ceil" x1="0" x2="0" y1="1" y2="0"><stop offset="0" stop-color="#12120e"/><stop offset="1" stop-color="#020202"/></linearGradient>
+        <linearGradient id="hall-l" x1="1" x2="0" y1="0" y2="0"><stop offset="0" stop-color="#16150f"/><stop offset="1" stop-color="#020202"/></linearGradient>
+        <linearGradient id="hall-r" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#16150f"/><stop offset="1" stop-color="#020202"/></linearGradient>
+      </defs>
+      <rect width="1600" height="900" fill="#020202"/>
+      <path d="M0 0L640 330V570L0 900Z" fill="url(#hall-l)"/>
+      <path d="M1600 0L960 330V570L1600 900Z" fill="url(#hall-r)"/>
+      <path d="M0 0H1600L960 330H640Z" fill="url(#hall-ceil)"/>
+      <path d="M0 900H1600L960 570H640Z" fill="url(#hall-floor)"/>
+      <rect x="640" y="330" width="320" height="240" fill="#1b1a13"/>
+      <rect x="752" y="396" width="96" height="174" fill="#030303"/>
+      <path d="M752 396H848V570" stroke="#2c2a1f" stroke-width="2" fill="none"/>
+      <path d="M0 0L640 330M1600 0L960 330M0 900L640 570M1600 900L960 570M640 330H960V570H640Z" stroke="#24231b" stroke-width="2" fill="none"/>
+      <path d="M250 286L420 344V668L250 760Z M1350 286L1180 344V668L1350 760Z" fill="#050504" stroke="#1c1b15" stroke-width="2"/>
+      <path d="M500 388L580 414V616L500 656Z M1100 388L1020 414V616L1100 656Z" fill="#070706" stroke="#1c1b15" stroke-width="1.5"/>
+    </svg>
+    <div class="hall-light" aria-hidden="true"></div>
+    <div class="figure-wrap" id="figure" aria-hidden="true"></div>
+    <p class="caption" id="caption" aria-live="polite"></p>
+  </div>
+</section>
+
+<div class="scare" id="scare" hidden aria-hidden="true"></div>
+
+<div class="endcard" id="endcard" hidden>
+  <div class="end-inner">
+    <div class="end-lines" id="end-lines"></div>
+    <button class="end-btn" id="end-btn" type="button">go back up</button>
+  </div>
+</div>
+
+<div class="peek" id="peek" aria-hidden="true"></div>
+
+<aside class="cookie" id="cookie" role="dialog" aria-label="Cookie notice">
+  <p id="cookie-text">We use cookies to improve your experience and keep you energized.</p>
+  <div class="cookie-btns" id="cookie-btns">
+    <button class="btn btn-small btn-primary" type="button" data-cookie>Accept all</button>
+    <button class="btn btn-small btn-ghost" type="button" data-cookie>Decline</button>
+  </div>
+</aside>
+
+<script src="script.js"></script>
+</body>
+</html>
